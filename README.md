@@ -7,7 +7,6 @@ Wine Mates アプリケーション - Virtual Wine Cellar(VWC) サービス:
 # git clone https://github.com/smachida/vwc-server-java.git
 # cd vwc-server-java
 # ./mvnw clean package -DskipTests=true docker:build
-# docker-compose up
 ~~~
 
 # [API 0.0.5]
