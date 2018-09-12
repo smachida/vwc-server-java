@@ -61,6 +61,14 @@ vwc-server の「image」の値を上記設定にあわせて「smachida/vwc-ser
 # 依存関係
 
 ~~~
+前提条件:
+Java
+docker
+docker-compose
+MySQL(IDEでの開発時。コンテナでの実行時には不要)
+~~~
+
+~~~
 このプロジェクトでは lombok を利用しています。
 https://projectlombok.org/
 
