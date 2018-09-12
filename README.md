@@ -2,6 +2,12 @@
 
 Wine Mates アプリケーション - Virtual Wine Cellar(VWC) サービス:
 
+# 参考資料
+・ワイン情報
+
+[最新版　ワイン完全バイブル　井手勝茂監修](https://www.amazon.co.jp/最新版-ワイン完全バイブル-井手-勝茂/dp/4816353542/)
+
+
 # [API 0.0.5]
 ## ワイン情報検索 API
 
