@@ -2,11 +2,60 @@
 
 Wine Mates アプリケーション - Virtual Wine Cellar(VWC) サービス:
 
-# Howto Build & Run
+# HowTo: Build & Run
+
 ~~~
 # git clone https://github.com/smachida/vwc-server-java.git
 # cd vwc-server-java
+~~~
+
+~~~
+以下の２つのファイルの内容を修正
+
+pom.xml:
+<imageName></imageName> の値を「smachida/${project.artifactId}<」から「vwc-server」などに変更
+
+〜〜〜　省略　〜〜〜
+<build>
+  <finalName>${project.artifactId}</finalName>
+  <plugins>
+    <plugin>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <groupId>com.spotify</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <version>1.1.1</version>
+        <configuration>
+          <imageName>smachida/${project.artifactId}</imageName>               
+          <dockerDirectory>${docker.baseDir}</dockerDirectory>
+         〜〜〜　中略　〜〜〜
+</build>
+
+docker-compose.yml:
+vwc-server の「image」の値を上記設定にあわせて「smachida/vwc-server」から「vwc-server」などに変更。また、必要に応じて外部に公開するエンドポイントのポート番号も変更（デフォルトでは 80 -> 8080 へのポートフォワーディング)。
+
+〜〜〜　省略　〜〜〜
+  vwc-server:
+    image: smachida/vwc-server
+    depends_on:
+      - vwc-mysql
+    ports:
+      - 80:8080
+    environment:
+      - DATABASE_HOST=vwc-mysql
+      - DATABASE_USER=vwcuser
+      - DATABASE_PASSWORD=vwcpassword
+      - DATABASE_NAME=vwcserverdb
+      - DATABASE_PORT=3306
+  〜〜〜　省略　〜〜〜
+  
+~~~
+
+~~~
 # ./mvnw clean package -DskipTests=true docker:build
+# docker-compose up -d
 ~~~
 
 # [API 0.0.5]
