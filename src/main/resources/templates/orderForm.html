@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Virtual Wine Cellar(VWC) Server</title>
+        <link rel="stylesheet" th:href="@{/styles.css}" />
+    </head>
+    <body>
+        <form method="POST" th:action="@{/orders}" th:object="${order}">
+            <h1>ワインのオーダー</h1>
+           <a th:href="@{/dummyWines}">他のワインの選択</a>
+           
+             <div th:if="${#fields.hasErrors()}">
+                   <span class="validationError">
+                          問題を解決して再度送信してください。
+                   </span>
+             </div>
+             
+             <input type="submit" value="注文" />
+        </form>
+    </body>
+</html>
