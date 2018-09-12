@@ -65,7 +65,7 @@ vwc-server の「image」の値を上記設定にあわせて「smachida/vwc-ser
 Java
 docker
 docker-compose
-MySQL(IDEなどでの開発時。コンテナ環境での実行時には不要)
+MySQL(IDEなどでの開発時。dockerでの実行時には公式イメージを利用)
 ~~~
 
 ~~~
