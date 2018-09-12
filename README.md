@@ -13,7 +13,7 @@ Wine Mates アプリケーション - Virtual Wine Cellar(VWC) サービス:
 以下の２つのファイルの内容を修正
 
 pom.xml:
-<imageName></imageName> の値を「smachida/${project.artifactId}<」から「vwc-server」などに変更
+<imageName></imageName> の値を「smachida/${project.artifactId}」から「vwc-server」などに変更
 
 〜〜〜　省略　〜〜〜
 <build>
