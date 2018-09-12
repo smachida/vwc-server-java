@@ -58,6 +58,21 @@ vwc-server の「image」の値を上記設定にあわせて「smachida/vwc-ser
 # docker-compose up -d
 ~~~
 
+# 依存関係
+
+~~~
+このプロジェクトでは lombok を利用しています。
+https://projectlombok.org/
+
+プロジェクトを STSやEclipse で読み込むと、そのままではIDE上でエラーが発生しているように表示されます。
+以下のサイトから「lombok.jar」をダウンロードして、lombokをIDEにインストールしてください。
+
+https://projectlombok.org/download
+
+// インストーラの起動
+java -jar lombok.jar
+~~~
+
 # [API 0.0.5]
 ## ワイン情報検索 API
 
