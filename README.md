@@ -81,6 +81,10 @@ https://projectlombok.org/download
 java -jar lombok.jar
 ~~~
 
+# 構成変更履歴
+- APIサーバのデフォルトのポート番号を 80 -> 28080 に変更 (2018/09/12)
+
+
 # [API 0.0.6]
 ## ワイン情報検索 API
 
