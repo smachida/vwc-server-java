@@ -81,7 +81,7 @@ public class WineAPIController {
 	 * @return
 	 */
 	@GetMapping("/wines/{wineId}")
-	public ResponseEntity<Wine> dummyWineByWineId(@PathVariable("wineId") String wineId) {
+	public ResponseEntity<Wine> showWineByWineId(@PathVariable("wineId") String wineId) {
 		Wine wine = wineRepo.findByWineId(wineId);
 		if (wine != null) {
 			log.info("found the wine: " + wine);
