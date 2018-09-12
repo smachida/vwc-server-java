@@ -65,14 +65,14 @@ vwc-server の「image」の値を上記設定にあわせて「smachida/vwc-ser
 Java
 docker
 docker-compose
-MySQL(IDEでの開発時。コンテナでの実行時には不要)
+MySQL(IDEなどでの開発時。コンテナ環境での実行時には不要)
 ~~~
 
 ~~~
 このプロジェクトでは lombok を利用しています。
 https://projectlombok.org/
 
-プロジェクトを STSやEclipse で読み込むと、そのままではIDE上でエラーが発生しているように表示されます。
+プロジェクトを STSやEclipse などで読み込むと、そのままではIDE上でエラーが発生しているように表示されます。
 以下のサイトから「lombok.jar」をダウンロードして、lombokをIDEにインストールしてください。
 
 https://projectlombok.org/download
