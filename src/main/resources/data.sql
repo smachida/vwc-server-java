@@ -679,7 +679,7 @@ insert into wine_grape_variety (wine_id, grape_variety_code) values ("ZASB00002"
 insert into wine_maker (wine_maker_id, country_code, region_code, name) values ("JPYN0001", "CC0017", "JP0001", "イケダワイナリー");
 insert into wine (wine_id, name, taste_code, rating_code, color_id, wine_maker_id, grape_variety_code, description, 
                   image_url, image_caption, year, price_bottle, price_half_bottle)
-    values ("JPYN00001", "イケダワイナリー・セレクトほげ", "T0005", "R00000006", "C0002", "JPYN0001", "W0007",
+    values ("JPYN00001", "イケダワイナリー・セレクト", "T0005", "R00000006", "C0002", "JPYN0001", "W0007",
               "最近の流れである、個性豊かな甲州のスタイル。醸造家のこだわり、職人性を感じるこの甲州は、樽の効いたロワールのシュナン・ブランのような香りと味わい。果実味と直結したゆるやかな甘味と上品でまったりとした余韻をもつ、まさに日本のソムリエが待っていた国産の辛口といえる。", 
             "http://", "イケダワイナリー・セレクト 2011", 2011, 2100, -1);
 insert into wine_grape_variety (wine_id, grape_variety_code) values ("JPYN00001", "W0007");
