@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vmware.dxp.vwcserver.wine.Country;
@@ -66,12 +67,27 @@ public class WineAPIController {
 
 	/**
 	 * ワインの一覧を取得します。
-	 * @return
+	 * @TODO 国による検索はJPAのクエリベースの実装に変更する
+	 * @return ワインの一覧
 	 */
 	@GetMapping("/wines")
-	public List<Wine> showWines() {
+	public List<Wine> showWines(
+			@RequestParam(name = "countryCode", required = false) String countryCode) {
 		List<Wine> wines = new ArrayList<Wine>();
-		wineRepo.findAll().forEach(wine -> wines.add(wine));
+		if (countryCode == null) {
+			// 全件取得
+			log.info("showWines with no search option");			
+			wineRepo.findAll().forEach(wine -> wines.add(wine));
+		} else {
+			log.info("showWines with countryCode=" + countryCode);
+			wineRepo.findAll().forEach(wine -> 
+			{
+				if (countryCode.equals(wine.getWineMaker().getCountry().getCountryCode())) {
+					wines.add(wine);
+				}
+			});
+		}
+		
 		return wines;
 	}
 	
@@ -90,7 +106,7 @@ public class WineAPIController {
 		log.info("found no wine with the id: " + wineId);
 		return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 	}
-
+	
 	/**
 	 * 格付けの一覧を取得します。
 	 * @return

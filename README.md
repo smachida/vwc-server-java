@@ -81,7 +81,7 @@ https://projectlombok.org/download
 java -jar lombok.jar
 ~~~
 
-# [API 0.0.5]
+# [API 0.0.6]
 ## ワイン情報検索 API
 
 ~~~
@@ -92,7 +92,9 @@ java -jar lombok.jar
 ~~~
 ・ワイン
   ・一覧取得: GET /wines
-  ・IDによる検索: GET /wines/{wineId}
+　・IDによる検索: GET /wines/{wineId}
+  ・条件付き検索
+　　・国: GET /wines?countryCode={countryCode}
 ・ワインメーカー
   ・一覧取得: GET /makers
 ・色
