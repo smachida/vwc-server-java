@@ -2,6 +2,15 @@
 
 Wine Mates アプリケーション - Virtual Wine Cellar(VWC) サービス:
 
+# What's New
+
+### 2018/09/18: Swagger に対応しました。
+
+~~~
+以下のURLにアクセス:
+http://<hostname>:28080/swagger-ui.html
+~~~
+
 # HowTo: Build & Run
 
 ~~~
@@ -42,7 +51,7 @@ vwc-server の「image」の値を上記設定にあわせて「smachida/vwc-ser
     depends_on:
       - vwc-mysql
     ports:
-      - 80:8080
+      - 28080:8080
     environment:
       - DATABASE_HOST=vwc-mysql
       - DATABASE_USER=vwcuser
