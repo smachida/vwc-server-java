@@ -38,7 +38,7 @@ public class Wine implements Serializable {
 	/** 説明 */
 	private String description;
 	
-	/** 色 */
+	/** 色  */
 	@ManyToOne
 	@JoinColumn(name="color_id", referencedColumnName="colorId")		
 	private WineColor wineColor;
