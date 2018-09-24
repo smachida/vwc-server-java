@@ -7,7 +7,9 @@ Wine Mates アプリケーション - Virtual Wine Cellar(VWC) サービス:
 ### 2018/09/24: PWS(Pivotal Web Services)への展開に対応しました。
 
 ~~~
-詳細は 「HowTo: Build & Run」の「2. パブリックの Cloud Foundry サービス (PWS: Pivotal Web Services) 上で実行」を参照。
+詳細は 
+「HowTo: Build & Run」->「2. パブリックの Cloud Foundry サービス (PWS: Pivotal Web Services) 上で実行」
+を参照。
 ~~~
 
 ### 2018/09/18: Swagger に対応しました。
