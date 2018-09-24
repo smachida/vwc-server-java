@@ -4,6 +4,12 @@ Wine Mates アプリケーション - Virtual Wine Cellar(VWC) サービス:
 
 # What's New
 
+### 2018/09/24: PWS(Pivotal Web Services)への展開に対応しました。
+
+~~~
+詳細は 「HowTo: Build & Run」の「2. パブリックの Cloud Foundry サービス (PWS: Pivotal Web Services) 上で実行」を参照。
+~~~
+
 ### 2018/09/18: Swagger に対応しました。
 
 ~~~
@@ -99,6 +105,16 @@ vwc-server の「image」の値を上記設定にあわせて「smachida/vwc-ser
 
 # 新規にアプリをデプロイ
 cf push
+~~~
+
+※ 他の Cloud Foundry 環境での実行
+
+~~~
+2018/09/24 時点で動作確認はしていませんが、ClearDB の代わりに各プラットフォーム上で提供される MySQL サービスのインスタンスを実行することで対応可能なはずです。
+ただし、各サービス毎でMySQLのバージョンやデータベースインタンスに設定できる項目が異なるため、設定やソースコードを多少変更する必要があるかもしれません。
+
+// _create_db.sh の内容(以下)をClearDB から別のサービスに変更
+cf create-service cleardb spark vwc-mysql
 ~~~
 
 # 依存関係
