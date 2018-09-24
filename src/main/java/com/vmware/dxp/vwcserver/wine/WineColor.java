@@ -36,6 +36,6 @@ public class WineColor implements Serializable {
 	/** 説明 */
 	private String description;
 
-	private Date createdAt;
+	//private Date createdAt;
 	private Date updatedAt;
 }

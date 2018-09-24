@@ -35,6 +35,6 @@ public class Region implements Serializable {
 	/** 名前 */
 	private String name;
 	
-	private Date createdAt;
+	//private Date createdAt;
 	private Date updatedAt;
 }

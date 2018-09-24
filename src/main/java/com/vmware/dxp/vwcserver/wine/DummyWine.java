@@ -32,6 +32,6 @@ public class DummyWine implements Serializable {
 	private final int year;
 	private final int priceBottle;
 	private final int priceHalfBottle;
-	private final Date createdAt;
+	//private final Date createdAt;
 	private final Date updatedAt;
 }

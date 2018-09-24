@@ -18,6 +18,8 @@ http://<hostname>:28080/swagger-ui.html
 # cd vwc-server-java
 ~~~
 
+### 1. ローカルのコンテナホスト上で実行
+
 ~~~
 以下の２つのファイルの内容を修正
 
@@ -64,7 +66,39 @@ vwc-server の「image」の値を上記設定にあわせて「smachida/vwc-ser
 
 ~~~
 # ./mvnw clean package -DskipTests=true docker:build
+# cd deploy/localhost
 # docker-compose up -d
+~~~
+
+### 2. パブリックの Cloud Foundry サービス (PWS: Pivotal Web Services) 上で実行
+
+~~~
+前提:
+取得しているアカウントで Cloud Foundry 環境にログインしていること
+
+例:
+# cf login -a https://api.run.pivotal.io -u <email/username>
+~~~
+
+~~~
+# cd deploy/pcf-with-db-service
+# ./run-app-on-pws.sh
+~~~
+
+※ run-app-on-pws.sh の内容
+
+~~~
+#!/bin/bash
+
+(cd ../../; mvn clean package -DskipTests=true)
+
+# すでにデプロイされているアプリ及びDBサービス(MySQLインスタンス)を削除
+./_clean.sh
+# データベースサービスの作成
+./_create_db.sh
+
+# 新規にアプリをデプロイ
+cf push
 ~~~
 
 # 依存関係

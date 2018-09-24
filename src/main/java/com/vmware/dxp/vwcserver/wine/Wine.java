@@ -78,6 +78,6 @@ public class Wine implements Serializable {
 	/** 価格（ハーフボトル） */
 	private int priceHalfBottle;
 	
-	private Date createdAt;
+	//private Date createdAt;
 	private Date updatedAt;
 }

@@ -19,12 +19,12 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-		<docker.baseDir>src/main/docker</docker.baseDir>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <docker.baseDir>src/main/docker</docker.baseDir>
+    </properties>
 
 	<dependencies>
 		<dependency>
@@ -60,23 +60,35 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- Swagger -->
 		<dependency>
-		  <groupId>io.springfox</groupId>
-		  <artifactId>springfox-swagger2</artifactId>
-		  <version>2.9.2</version>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
 		</dependency>
 		<dependency>
-		  <groupId>io.springfox</groupId>
-		  <artifactId>springfox-swagger-ui</artifactId>
-		  <version>2.9.2</version>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.2</version>
 		</dependency>
 		<dependency>
-		  <groupId>io.springfox</groupId>
-		  <artifactId>springfox-core</artifactId>
-		  <version>2.9.2</version>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-core</artifactId>
+			<version>2.9.2</version>
 		</dependency>
+
+		<!-- PCF -->
+		<!--
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-spring-service-connector</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-cloudfoundry-connector</artifactId>
+		</dependency>
+		-->
 	</dependencies>
 
 	<build>

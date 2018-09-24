@@ -50,6 +50,6 @@ public class Country implements Serializable {
 				inverseJoinColumns = { @JoinColumn(name = "region_code") })
 	private List<Region> regions = new ArrayList<>();
 	
-	private Date createdAt;
+	//private Date createdAt;
 	private Date updatedAt;
 }

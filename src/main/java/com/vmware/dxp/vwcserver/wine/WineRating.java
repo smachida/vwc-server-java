@@ -41,6 +41,6 @@ public class WineRating implements Serializable {
 	@JoinColumn(name="color_id", referencedColumnName="colorId")
 	private WineColor wineColor;
 
-	private Date createdAt;
+	//private Date createdAt;
 	private Date updatedAt;
 }

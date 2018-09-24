@@ -45,6 +45,6 @@ public class WineMaker implements Serializable {
 	@JoinColumn(name="country_code", referencedColumnName="countryCode")		
 	private Country country;
 	
-	private Date createdAt;
+	//private Date createdAt;
 	private Date updatedAt;
 }

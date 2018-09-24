@@ -12,79 +12,69 @@ create table if not exists wine (
   year INT,
   price_bottle INT,
   price_half_bottle INT,
-  created_at timestamp not null default current_timestamp,
   updated_at timestamp not null default current_timestamp on update current_timestamp  
-);
+) Engine=InnoDB DEFAULT CHARSET='utf8mb4' COLLATE='utf8mb4_general_ci';
 
 create table if not exists wine_rating (
   rating_code varchar(50) not null PRIMARY KEY,
   color_id varchar(50),
   description varchar(2000) not null,
-  created_at timestamp not null default current_timestamp,
   updated_at timestamp not null default current_timestamp on update current_timestamp    
-);
+) Engine=InnoDB DEFAULT CHARSET='utf8mb4' COLLATE='utf8mb4_general_ci';
 
 create table if not exists wine_taste (
   taste_code varchar(50) not null PRIMARY KEY,
   description varchar(100) not null,
-  created_at timestamp not null default current_timestamp,
   updated_at timestamp not null default current_timestamp on update current_timestamp    
-);
+) Engine=InnoDB DEFAULT CHARSET='utf8mb4' COLLATE='utf8mb4_general_ci';
 
 create table if not exists wine_color (
   color_id varchar(50) not null PRIMARY KEY,
   name varchar(50) not null,
   description varchar(2000) not null,
-  created_at timestamp not null default current_timestamp,
   updated_at timestamp not null default current_timestamp on update current_timestamp  
-);
+) Engine=InnoDB DEFAULT CHARSET='utf8mb4' COLLATE='utf8mb4_general_ci';
 
 create table if not exists wine_maker (
   wine_maker_id varchar(50) not null PRIMARY KEY,
   country_code varchar(50),
   region_code varchar(50),
   name varchar(1000) not null,
-  created_at timestamp not null default current_timestamp,
   updated_at timestamp not null default current_timestamp on update current_timestamp  
-);
+) Engine=InnoDB DEFAULT CHARSET='utf8mb4' COLLATE='utf8mb4_general_ci';
 
 create table if not exists country (
   country_code varchar(50) not null PRIMARY KEY,
   name varchar(100) not null,
   region_code varchar(50),
-  created_at timestamp not null default current_timestamp,
   updated_at timestamp not null default current_timestamp on update current_timestamp  
-);
+) Engine=InnoDB DEFAULT CHARSET='utf8mb4' COLLATE='utf8mb4_general_ci';
 
 create table if not exists region (
   region_code varchar(50) not null PRIMARY KEY,
   name varchar(100) not null,
-  created_at timestamp not null default current_timestamp,
   updated_at timestamp not null default current_timestamp on update current_timestamp  
-);
+) Engine=InnoDB DEFAULT CHARSET='utf8mb4' COLLATE='utf8mb4_general_ci';
 
 create table if not exists country_region (
   country_code varchar(50) not null,
   region_code varchar(50) not null,
-  created_at timestamp not null default current_timestamp,
   updated_at timestamp not null default current_timestamp on update current_timestamp   
-);
+) Engine=InnoDB DEFAULT CHARSET='utf8mb4' COLLATE='utf8mb4_general_ci';
 
 create table if not exists grape_variety  (
   grape_variety_code varchar(50) not null PRIMARY KEY,
   color_id varchar(50),  
   name varchar(100) not null,
   description varchar(1000) not null,
-  created_at timestamp not null default current_timestamp,
   updated_at timestamp not null default current_timestamp on update current_timestamp  
-);
+) Engine=InnoDB DEFAULT CHARSET='utf8mb4' COLLATE='utf8mb4_general_ci';
 
 create table if not exists wine_grape_variety (
   wine_id varchar(50) not null,
   grape_variety_code varchar(50) not null,
-  created_at timestamp not null default current_timestamp,
   updated_at timestamp not null default current_timestamp on update current_timestamp    
-);
+) Engine=InnoDB DEFAULT CHARSET='utf8mb4' COLLATE='utf8mb4_general_ci';
 
 alter table wine
     add foreign key (rating_code) references wine_rating(rating_code);
@@ -126,21 +116,19 @@ create table if not exists dummy_wine (
   year INT,
   price_bottle INT,
   price_half_bottle INT,
-  created_at timestamp not null default current_timestamp,
   updated_at timestamp not null default current_timestamp on update current_timestamp
-);
+) Engine=InnoDB DEFAULT CHARSET='utf8mb4' COLLATE='utf8mb4_general_ci';
 
 create table if not exists selected_wines (
   id INT AUTO_INCREMENT not null PRIMARY KEY,
   name varchar(100) not null,
-  created_at timestamp not null default current_timestamp,
   updated_at timestamp not null default current_timestamp on update current_timestamp
-);
+) Engine=InnoDB DEFAULT CHARSET='utf8mb4' COLLATE='utf8mb4_general_ci';
 
 create table if not exists selected_wines_dummy_wine (
   selected_wines INT not null,
   dummy_wine INT not null
-);
+) Engine=InnoDB DEFAULT CHARSET='utf8mb4' COLLATE='utf8mb4_general_ci';
 
 alter table selected_wines_dummy_wine
     add foreign key (selected_wines) references selected_wines(id);
@@ -157,14 +145,13 @@ create table if not exists dummy_wine_order (
   cc_number varchar(16),
   cc_expiration varchar(5),
   cc_cvv varchar(3),
-  created_at timestamp not null default current_timestamp,
   updated_at timestamp not null default current_timestamp on update current_timestamp
-);    
+) Engine=InnoDB DEFAULT CHARSET='utf8mb4' COLLATE='utf8mb4_general_ci';    
 
 create table if not exists dummy_wine_order_selected_wines (
   dummy_wine_order INT not null,
   selected_wines INT not null
-);
+) Engine=InnoDB DEFAULT CHARSET='utf8mb4' COLLATE='utf8mb4_general_ci';
 
 alter table dummy_wine_order_selected_wines
     add foreign key (dummy_wine_order) references dummy_wine_order(id);

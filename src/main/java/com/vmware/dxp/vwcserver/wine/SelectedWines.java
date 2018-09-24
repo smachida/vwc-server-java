@@ -31,6 +31,6 @@ public class SelectedWines implements Serializable {
 	@ManyToMany(targetEntity=DummyWine.class)
 	private List<DummyWine> wines;
 	
-	private Date createdAt;
+	//private Date createdAt;
 	private Date updatedAt;
 }

@@ -38,7 +38,7 @@ public class Order implements Serializable {
 	private String ccExpiration;
 	private String ccCVV;
 
-	private Date createdAt;
+	//private Date createdAt;
 	private Date updatedAt;
 	
 	@ManyToMany(targetEntity=SelectedWines.class)

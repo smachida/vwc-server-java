@@ -12,6 +12,7 @@ TRUNCATE table wine_grape_variety;
 TRUNCATE table dummy_wine;
 set foreign_key_checks = 1;
 
+
 insert into region (region_code, name) values ("FR0001", "ボルドー");
 insert into region (region_code, name) values ("FR0002", "ブルゴーニュ");
 insert into region (region_code, name) values ("FR0003", "シャンパーニュ");

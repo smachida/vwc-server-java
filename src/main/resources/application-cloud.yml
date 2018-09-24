@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: ${vcap.services.vwc-mysql.credentials.jdbcUrl}?useUnicode=true&characterEncoding=utf8
+    username: ${vcap.services.vwc-mysql.credentials.username}
+    password: ${vcap.services.vwc-mysql.credentials.password}
+    platform: mysql
+    initialization-mode: always
+    driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddlAuto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
