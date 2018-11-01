@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
  *
  */
 @Data
-@NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
 public class WineAPIResponse {
 	/** ステータスコード(現在未使用) */
 	private int statusCode = 0;
