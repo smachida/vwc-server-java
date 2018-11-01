@@ -71,9 +71,9 @@ public class WineAPIController {
 	 * @return ワインの一覧
 	 */
 	@GetMapping("/wines")
-	public List<Wine> showWines(
+	public WineAPIResponse showWines(
 			@RequestParam(name = "countryCode", required = false) String countryCode) {
-		List<Wine> wines = new ArrayList<Wine>();
+		List<Object> wines = new ArrayList<Object>();
 		if (countryCode == null) {
 			// 全件取得
 			log.info("showWines with no search option");			
@@ -88,7 +88,7 @@ public class WineAPIController {
 			});
 		}
 		
-		return wines;
+		return new WineAPIResponse(wines);
 	}
 	
 	/**
@@ -97,11 +97,13 @@ public class WineAPIController {
 	 * @return
 	 */
 	@GetMapping("/wines/{wineId}")
-	public ResponseEntity<Wine> showWineByWineId(@PathVariable("wineId") String wineId) {
+	public ResponseEntity<WineAPIResponse> showWineByWineId(@PathVariable("wineId") String wineId) {
 		Wine wine = wineRepo.findByWineId(wineId);
 		if (wine != null) {
 			log.info("found the wine: " + wine);
-			return new ResponseEntity<>(wine, HttpStatus.OK);
+			List<Object> wines = new ArrayList<Object>();
+			wines.add(wine);
+			return new ResponseEntity<>(new WineAPIResponse(wines), HttpStatus.OK);
 		}
 		log.info("found no wine with the id: " + wineId);
 		return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
@@ -112,10 +114,10 @@ public class WineAPIController {
 	 * @return
 	 */
 	@GetMapping("/ratings")
-	public List<WineRating> showRatings() {
-		List<WineRating> ratings = new ArrayList<WineRating>();
+	public WineAPIResponse showRatings() {
+		List<Object> ratings = new ArrayList<Object>();
 		ratingRepo.findAll().forEach(rating -> ratings.add(rating));
-		return ratings;
+		return new WineAPIResponse(ratings);
 	}
 
 	/**
@@ -123,10 +125,11 @@ public class WineAPIController {
 	 * @return
 	 */
 	@GetMapping("/colors")
-	public List<WineColor> showColors() {
-		List<WineColor> colors = new ArrayList<WineColor>();
+	public WineAPIResponse showColors() {
+		List<Object> colors = new ArrayList<Object>();
 		colorRepo.findAll().forEach(color -> colors.add(color));
-		return colors;
+		
+		return new WineAPIResponse(colors);
 	}
 	
 	/**
@@ -134,10 +137,10 @@ public class WineAPIController {
 	 * @return
 	 */
 	@GetMapping("/countries")
-	public List<Country> showCountries() {
-		List<Country> countries = new ArrayList<Country>();
+	public WineAPIResponse showCountries() {
+		List<Object> countries = new ArrayList<Object>();
 		countryRepo.findAll().forEach(country -> countries.add(country));
-		return countries;
+		return new WineAPIResponse(countries);
 	}
 	
 	/**
@@ -145,10 +148,10 @@ public class WineAPIController {
 	 * @return
 	 */
 	@GetMapping("/regions")
-	public List<Region> showRegions() {
-		List<Region> regions = new ArrayList<Region>();
+	public WineAPIResponse showRegions() {
+		List<Object> regions = new ArrayList<Object>();
 		regionRepo.findAll().forEach(region -> regions.add(region));
-		return regions;
+		return new WineAPIResponse(regions);
 	}
 	
 	/**
@@ -156,10 +159,10 @@ public class WineAPIController {
 	 * @return
 	 */
 	@GetMapping("/makers")
-	public List<WineMaker> showMakers() {
-		List<WineMaker> makers = new ArrayList<WineMaker>();
+	public WineAPIResponse showMakers() {
+		List<Object> makers = new ArrayList<Object>();
 		makerRepo.findAll().forEach(maker -> makers.add(maker));
-		return makers;
+		return new WineAPIResponse(makers);
 	}
 	
 	/**
@@ -167,10 +170,10 @@ public class WineAPIController {
 	 * @return
 	 */
 	@GetMapping("/varieties")
-	public List<GrapeVariety> showVarieties() {
-		List<GrapeVariety> varieties = new ArrayList<GrapeVariety>();
+	public WineAPIResponse showVarieties() {
+		List<Object> varieties = new ArrayList<Object>();
 		varietyRepo.findAll().forEach(variety -> varieties.add(variety));
-		return varieties;
+		return new WineAPIResponse(varieties);
 	}	
 	
 	/**
@@ -178,9 +181,9 @@ public class WineAPIController {
 	 * @return
 	 */
 	@GetMapping("/tastes")
-	public List<WineTaste> showTastes() {
-		List<WineTaste> tastes = new ArrayList<WineTaste>();
+	public WineAPIResponse showTastes() {
+		List<Object> tastes = new ArrayList<Object>();
 		tasteRepo.findAll().forEach(taste -> tastes.add(taste));
-		return tastes;
+		return new WineAPIResponse(tastes);
 	}	
 }
