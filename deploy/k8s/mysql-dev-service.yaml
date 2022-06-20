@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vwc-server-db-mysql
+spec:
+  type: LoadBalancer
+  selector:
+    app: mysql
+  ports:
+    - port: 3306
+      targetPort: 3306
+

@@ -1,0 +1,4 @@
+docker run -d --name vwc-mysql -e MYSQL_ROOT_PASSWORD=vwcpassword -e MYSQL_DATABASE=vwcserverdb -e MYSQL_USER=vwcuser -e MYSQL_PASSWORD=vwcpassword -d mysql/mysql-server:5.7.23 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+docker run -d --name vwc-server --link vwc-mysql:mysql -p 28080:8080 -e DATABASE_HOST=vwc-mysql -e DATABASE_PORT=3306 -e DATABASE_NAME=vwcserverdb -e DATABASE_USER=vwcuser -e DATABASE_PASSWORD=vwcpassword smachida/vwc-server
+

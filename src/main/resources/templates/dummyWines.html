@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Virtual Wine Cellar(VWC) Server</title>
+        <link rel="stylesheet" th:href="@{/styles.css}" />
+    </head>
+    <body>
+        <h1>ダミーのワインリスト</h1>
+        <form method="POST" th:object="${selectedWines}">
+            <div class="grid">
+                <div class="wine-group">
+                    <h3>ワイン</h3>
+                        <div th:each="wine : ${dummyWines}">
+                                <input name="wines" type="checkbox" th:value="${wine.id}" />
+                                    <span th:text="${wine.name}">WINE</span><br/>
+                        </div>
+                </div>
+                
+                <br/>
+                <button>送信！</button>         
+            </div>
+        </form>
+    </body>
+</html>

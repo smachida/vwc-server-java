@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vwc-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vwc-server
+  template:
+    metadata:
+      labels:
+        app: vwc-server
+    spec:
+      containers:
+        - name: vwc-server
+          image: harbor-prod.mp-tanzu-demo.com/apps/vwc-server:latest
+          imagePullPolicy: Always
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "container"
+            - name: DATABASE_HOST
+              value: "172.16.131.10"
+              #value: mysql.default.svc.cluster.local
+            - name: DATABASE_PORT
+              value: "3306"
+            - name: DATABASE_USER
+              value: vwcuser
+            - name: DATABASE_PASSWORD
+              value: vwcpassword
+            - name: DATABASE_NAME
+              value: vwcserverdb
+          ports:
+          - containerPort: 8080
+      imagePullSecrets:
+      - name: regcred-harbor-dev
+

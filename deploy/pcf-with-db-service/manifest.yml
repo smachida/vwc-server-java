@@ -1,0 +1,16 @@
+---
+applications:
+- name: vwc-server
+  memory: 768M
+  random-route: false
+  path: ../../target/vwc-server.jar
+  env: 
+    SPRING_PROFILES_ACTIVE: cloud,mysql
+  services:
+  - vwc-mysql
+
+buildpack: https://github.com/cloudfoundry/java-buildpack.git
+
+env:
+  JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
+  

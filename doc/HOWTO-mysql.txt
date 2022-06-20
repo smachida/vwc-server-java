@@ -1,0 +1,9 @@
+Ubuntu 18.04 LTS Server への MySQL のインストール
+
+$ sudo apt install mysql-server mysql-client
+
+$ sudo mysql_secure_installation
+
+
+docker run -d --name vwc-mysql -e MYSQL_ROOT_PASSWORD=vwcpassword -e MYSQL_DATABASE=vwcserverdb -e MYSQL_USER=vwcuser -e MYSQL_PASSWORD=vwcpassword -d mysql/mysql-server:5.7.23 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
